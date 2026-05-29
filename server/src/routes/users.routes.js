@@ -16,3 +16,5 @@ router.post('/:id/areas', checkRole('admin'), assignArea)
 router.delete('/:id/areas/:areaId', checkRole('admin'), removeArea)
 
 module.exports = router
+
+//12
