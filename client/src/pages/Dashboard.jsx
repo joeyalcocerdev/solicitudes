@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { useRequests } from '../hooks/useRequests'
 import StatusBadge from '../components/common/StatusBadge'
+import PriorityBadge from '../components/common/PriorityBadge'
 
 export default function Dashboard() {
   const { user } = useAuth()
@@ -53,7 +54,10 @@ export default function Dashboard() {
                   </Link>
                   <p className="text-xs text-gray-400">{r.area_name}</p>
                 </div>
-                <StatusBadge status={r.status} />
+                <div className="flex items-center gap-2">
+                  <PriorityBadge priority={r.priority} />
+                  <StatusBadge status={r.status} />
+                </div>
               </li>
             ))}
           </ul>

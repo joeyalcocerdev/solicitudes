@@ -3,7 +3,7 @@ const pool = require('../config/db')
 
 async function getAll(req, res) {
   try {
-    const result = await pool.query('SELECT id, name, email, role, created_at FROM users ORDER BY name')
+    const result = await pool.query('SELECT id, name, email, phone, role, created_at FROM users ORDER BY name')
     res.json(result.rows)
   } catch (err) {
     res.status(500).json({ error: 'Error interno del servidor' })
@@ -13,7 +13,7 @@ async function getAll(req, res) {
 async function getById(req, res) {
   try {
     const result = await pool.query(
-      'SELECT id, name, email, role, created_at FROM users WHERE id = $1',
+      'SELECT id, name, email, phone, role, created_at FROM users WHERE id = $1',
       [req.params.id]
     )
     if (!result.rows[0]) return res.status(404).json({ error: 'Usuario no encontrado' })

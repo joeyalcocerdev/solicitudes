@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgres://postgres:secret@db:5432/contador
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: contador
+#    volumes:
+#      - db_data:/var/lib/postgresql/data
+
+#volumes:
+  #db_data:
+
+  #docker compose up -d --build
