@@ -17,4 +17,4 @@ router.delete('/:id/areas/:areaId', checkRole('admin'), removeArea)
 
 module.exports = router
 
-//12
+//12.

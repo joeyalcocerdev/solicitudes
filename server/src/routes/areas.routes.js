@@ -13,7 +13,7 @@ router.use(isAuthenticated)
 router.get('/', getAll)
 router.get('/:id', getById)
 
-// Rutas de escritura (Solo usuarios logueados que ADEMÁS sean 'admin') 12
+// Rutas de escritura (Solo usuarios logueados que ADEMÁS sean 'admin') 12.
 router.post('/', checkRole('admin'), create)
 router.put('/:id', checkRole('admin'), update)
 router.delete('/:id', checkRole('admin'), remove)
